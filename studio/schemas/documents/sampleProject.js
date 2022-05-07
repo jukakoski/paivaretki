@@ -11,6 +11,11 @@ export default {
       type: 'string'
     },
     {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -51,6 +56,12 @@ export default {
       name: 'mainImage',
       title: 'Main image',
       type: 'figure'
+    },
+    {
+      name: 'otherImages',
+      title: 'Other images',
+      type: 'array',
+      of: [{type: 'figure'}]
     },
     {
       name: 'categories',

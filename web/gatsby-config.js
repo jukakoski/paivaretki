@@ -21,6 +21,20 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-embed-matterport",
+            options: {
+              width: 800,
+              height: 400
+            }
+          }
+        ]
+      }
     }
   ]
 }

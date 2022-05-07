@@ -10,6 +10,7 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -87,10 +88,11 @@ const IndexPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
+        <h1 hidden>Moikka vieras {site.title}</h1>
+        <img src="http://heinolaseura.fi/kuvat_18/heinolan_kartta_1838_gylden_700x784.jpg" />
         {projectNodes && (
           <ProjectPreviewGrid
-            title="Latest projects"
+            title="Viime projektit"
             nodes={projectNodes}
             browseMoreHref="/archive/"
           />

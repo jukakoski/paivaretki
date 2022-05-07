@@ -15,5 +15,10 @@
   },
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "gatsby-remark-embed-matterport": "^0.0.2",
+    "gatsby-remark-responsive-iframe": "^5.13.0",
+    "gatsby-transformer-remark": "^5.13.0"
   }
 }

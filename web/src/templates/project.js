@@ -6,6 +6,7 @@ import Project from "../components/project";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 
+
 export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
     sampleProject: sanitySampleProject(id: { eq: $id }) {
@@ -44,7 +45,30 @@ export const query = graphql`
         }
         alt
       }
+      otherImages{
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
       title
+      subtitle
       slug {
         current
       }

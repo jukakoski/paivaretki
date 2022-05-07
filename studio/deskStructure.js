@@ -18,15 +18,15 @@ export default () =>
         )
         .icon(MdSettings),
       S.listItem()
-        .title('Sample projects')
+        .title('Projektit')
         .schemaType('sampleProject')
         .child(S.documentTypeList('sampleProject').title('Sample projects')),
       S.listItem()
-        .title('People')
+        .title('Ihmiset')
         .schemaType('person')
         .child(S.documentTypeList('person').title('People')),
       S.listItem()
-        .title('Categories')
+        .title('Luokat')
         .schemaType('category')
         .child(S.documentTypeList('category').title('Categories')),
       // This returns an array of all the document types

@@ -96,3 +96,9 @@
   composes: base from './typography.module.css';
   margin: 0.5rem 0 0;
 }
+
+.jumpTo{
+  height: 50px;
+  width: 50px;
+  background: #f00;
+}

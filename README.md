@@ -36,3 +36,7 @@ Netlify automatically deploys new changes commited to the `master` branch on Git
 [![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
 
 Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
+
+
+## Guide
+https://www.sanity.io/guides/the-blog-template
