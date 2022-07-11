@@ -21,7 +21,13 @@ function Project(props) {
 
 
   const hanldeClickImage = (e, args) => {
-    alert(args.name)
+
+    if(args.url){
+      window.open(args.url, '_blank').focus();
+    } else {
+      alert(args.name)
+    }
+
   }
 
   // Hot spot creation function
@@ -68,6 +74,14 @@ function Project(props) {
 
   const [selectedImage, setSelectedImage] = useState(imageUrlFor(buildImageObj(mainImage)).url())
 
+  const panoramas = [
+    {
+
+    }
+  ]
+
+
+
   console.log(mainImage)
   return (
     <article className={styles.root}>
@@ -85,7 +99,6 @@ function Project(props) {
             width="100%"
             height="800px"
             image={selectedImage}
-            /*             image={"https://farminf.github.io/pannellum-react/alma.ce3e3084.jpg"} */
             pitch={-15} // vertical angle start
             yaw={60} // horizontal start
             hfov={110}
@@ -120,10 +133,10 @@ function Project(props) {
               type="custom"
               pitch={-1.0826514400215093}
               yaw={-94.0409909865549}
-              text="Heinolan keskusta"
-              handleClick={(evt, args) => hanldeClickImage(evt, args)}
-              handleClickArg={{ "name": "keskusta" }}
-              tooltipArg={{ "name": "Kumpeli", "imageUrl": "https://scontent.fqlf1-2.fna.fbcdn.net/v/t1.6435-9/201255316_3996044070514534_528694386255165909_n.png?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=1vIAW8LLhMYAX-b00QS&_nc_ht=scontent.fqlf1-2.fna&oh=00_AT9l05_f7KEbCc-5v3ONtKp1vKZrKldqkynwlMd7ttk7Kw&oe=629A182B" }}
+              text="Ravintola Kusmiku"
+              handleClick={(evt, args) => hanldeClickImage(evt, {url: "http://www.kusmiku.fi"})}
+              handleClickArg={{ "name": "kusmiku" }}
+              tooltipArg={{ "name": "Kusmiku", "imageUrl": "https://scontent.fqlf1-2.fna.fbcdn.net/v/t1.6435-9/201255316_3996044070514534_528694386255165909_n.png?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=O6ncPPYQE4gAX9t0Iit&_nc_ht=scontent.fqlf1-2.fna&oh=00_AT_c2AIEpW8hHfLewTfnpganMgcl_aNg_JMharziOIZnUg&oe=62D9602B" }}
               cssClass="jumpTo"
               tooltip={hotspot}
             />
@@ -134,7 +147,7 @@ function Project(props) {
               yaw={-60.37729935876492}
               text="Kumpeli"
               handleClick={(evt, args) => hanldeClickImage(evt, args)}
-              handleClickArg={{ "name": "keskusta" }}
+              handleClickArg={{ "name": "kumpeli" }}
               tooltipArg={{ "name": "Kumpeli", "imageUrl": "https://www.kumpeli.fi/wp-content/uploads/elementor/thumbs/kumpelin-logo-ilman-tietoja-oln2hm9nxxynnddnio9s1g7r22dwwzbukoeksq8gry.png" }}
               cssClass="jumpTo"
               tooltip={hotspot}
@@ -144,7 +157,7 @@ function Project(props) {
               type="custom"
               pitch={5.276079238692603}
               yaw={-99.97434903167009}
-              text="Kumpeli"
+              text="Keskusta"
               handleClick={(evt, args) => setSelectedImage('https://live.staticflickr.com/8130/30256395731_4f0c6044b7_b.jpg')}
               handleClickArg={{ "name": "keskusta" }}
               tooltipArg={{ "name": "Keskusta", "imageUrl": nuoli }}
@@ -180,7 +193,7 @@ function Project(props) {
                author="Aisoft"
                title={other.alt}
                keyboardZoom={false}
-               mouseZoom={false}
+               mouseZoom={true}
              ></Pannellum>
               return <div>{other.alt}</div>
             })}
