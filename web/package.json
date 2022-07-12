@@ -12,6 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
+    "@loadable/component": "^5.15.2",
     "@portabletext/react": "^1.0.1",
     "@sanity/image-url": "^1.0.1",
     "date-fns": "^2.28.0",
@@ -27,6 +28,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@loadable/webpack-plugin": "^5.15.2",
     "dotenv": "^15.0.0",
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",

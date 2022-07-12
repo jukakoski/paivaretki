@@ -11,8 +11,9 @@ import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Pannellum } from "pannellum-react";
+// import { Pannellum } from "pannellum-react";
 import pannelumData, { IPannelum } from '../data/pannelum'
+import Pannellum from "../components/LoadablePannelum";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -67,6 +68,7 @@ const IndexPage = props => {
 
   const [selectedPannelumIndex, setSelectedPannelumIndex] = useState(0)
 
+  const isSSR = typeof window === "undefined";
 
 
   if (errors) {
@@ -97,25 +99,28 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1>Tervetuloa {site.title}</h1>
-        <Pannellum
-          {...selectedPannelum}
-          width="100%"
-          height="800px"
-          autoLoad
-          onLoad={() => {
-            console.log("panorama loaded");
-          }}
-          keyboardZoom={false}
-          mouseZoom={false}
-        >
-          {selectedPannelum?.hotspots.map((props) =>
-            <Pannellum.Hotspot
-              {...props}
-              tooltip={hotspot}
-              handleClick={(evt, args) => setSelectedPannelumIndex(args.index)}
-            />)
-          }
-        </Pannellum>
+
+        {!isSSR &&
+          <Pannellum
+            {...selectedPannelum}
+            width="100%"
+            height="800px"
+            autoLoad
+            onLoad={() => {
+              console.log("panorama loaded");
+            }}
+            keyboardZoom={false}
+            mouseZoom={false}
+          >
+            {selectedPannelum?.hotspots.map((props) =>
+              <Pannellum.Hotspot
+                {...props}
+                tooltip={hotspot}
+                handleClick={(evt, args) => setSelectedPannelumIndex(args.index)}
+              />)
+            }
+          </Pannellum>
+        }
 
         {projectNodes && (
           <ProjectPreviewGrid
