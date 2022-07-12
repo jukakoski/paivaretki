@@ -5,7 +5,7 @@ import nuoli from '../components/icon/nuoli.png'
 const data: IPannelum[] = [
     {
         "index": 0,
-        "image": "https://live.staticflickr.com/8130/30256395731_4f0c6044b7_b.jpg",
+        "image": "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/vesitorni.jpg",
         "pitch": -15,
         "yaw": 60,
         "hfov": 110,
@@ -13,7 +13,7 @@ const data: IPannelum[] = [
         "hotspotDebug": false,
         "showControls": false,
         "author": "Heinolan kaupunki",
-        "title": "Heinolan tori",
+        "title": "Heinolan vesitorni",
         "hotspots": [
             {
                 "type": "info",
@@ -36,7 +36,7 @@ const data: IPannelum[] = [
     },
     {
         "index": 1,
-        "image": "https://live.staticflickr.com/8130/30256395731_4f0c6044b7_b.jpg",
+        "image": "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/tori.jpg",
         "pitch": -15,
         "yaw": 60,
         "hfov": 110,
@@ -44,7 +44,7 @@ const data: IPannelum[] = [
         "hotspotDebug": false,
         "showControls": false,
         "author": "Heinolan kaupunki",
-        "title": "Heinolan satama",
+        "title": "Heinolan tori",
         "hotspots": [
             {
                 "type": "info",
