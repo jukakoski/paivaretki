@@ -1,4 +1,4 @@
-@import './custom-properties.css';
+@import "./custom-properties.css";
 
 html {
   font-family: var(--font-family-sans);
@@ -20,9 +20,24 @@ body > div > div {
   height: 100%;
 }
 
+.jumpTo {
+/*   background: #f00; */
+  text-align: center;
+}
 
-.jumpTo{
-  height: 50px;
-  width: 50px;
-  background: #f00;
+.jumpTo > div {
+  background-color: #165596c2;
+  color: white;
+  padding: 0.2rem;
+}
+
+.jumpTo:hover {
+  transform: scale(0.9);
+}
+
+.jumpTo img {
+  width: 100%;
+  height: 100%;
+  max-width: 50px;
+  max-height: 50px;
 }

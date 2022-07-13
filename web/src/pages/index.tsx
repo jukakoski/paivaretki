@@ -108,6 +108,7 @@ const IndexPage = props => {
         {!isSSR &&
           <Pannellum
             {...selectedPannelum}
+            hfov={95}
             width="100%"
             height="100vh"
             autoLoad
@@ -115,14 +116,10 @@ const IndexPage = props => {
               console.log("panorama loaded");
             }}
             keyboardZoom={false}
+            hotspotDebug={false}
             mouseZoom={false}
             showFullscreenCtrl={true}
             showControls
-            config={{
-              uiText: {
-                bylineLabel: "heippa"
-              }
-            }}
           >
             {selectedPannelum?.hotspots.map((props) =>
               <Pannellum.Hotspot
@@ -153,18 +150,14 @@ export default IndexPage;
 // Hot spot creation function
 const hotspot = (hotSpotDiv, args) => {
   hotSpotDiv.classList.add('jumpTo');
-  var span = document.createElement('span');
+  const span = document.createElement('span');
   span.innerHTML = args;
 
   const arrow = document.createElement('div')
-  // arrow.innerText = args.name
-  arrow.style.width = '50px'
+  arrow.innerText = args.name
+  // arrow.style.width = '50px'
 
   const kuva = document.createElement('img')
-
-  /*     kuva.src = 'https://fi.wikipedia.org/wiki/Heinola#/media/Tiedosto:Heinola.vaakuna.svg'
-
-      kuva.onload = ev => console.log('ladattu kuva', ev) */
 
   const styles = {
     height: 'unset',
@@ -175,15 +168,15 @@ const hotspot = (hotSpotDiv, args) => {
   const img = new Image()
   img.style.height = 'unset'
   img.style.top = 'unset'
-  img.style.bottom = 'unset'
+  img.style.bottom = '0'
 
   console.log('tyyli', img.style)
 
-  img.src = args.imageUrl // 'https://scontent.fqlf1-2.fna.fbcdn.net/v/t1.6435-9/201255316_3996044070514534_528694386255165909_n.png?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=1vIAW8LLhMYAX-b00QS&_nc_ht=scontent.fqlf1-2.fna&oh=00_AT9l05_f7KEbCc-5v3ONtKp1vKZrKldqkynwlMd7ttk7Kw&oe=629A182B'
+  img.src = args.imageUrl
 
   hotSpotDiv.appendChild(arrow);
-  // arrow.style.backgroundColor = 'red'
   arrow.style.height = 'auto'
+
   hotSpotDiv.appendChild(img)
   hotSpotDiv.height = 'auto'
   /*     span.style.width = 'auto' // span.scrollWidth - 20 + 'px';

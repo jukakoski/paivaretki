@@ -2,6 +2,47 @@
 import nuoli from '../components/icon/nuoli.png'
 
 
+const vesitorni: IHotSpot = {
+    type: "custom",
+    pitch: 0,
+    yaw: 0,
+    text: "Vesitorni",
+    handleClickArg: { index: 0 },
+    tooltipArg: { "name": "Vesitorni", "imageUrl": nuoli },
+    cssClass: "jumpTo"
+}
+
+const tori: IHotSpot = {
+    type: "custom",
+    pitch: 0,
+    yaw: 0,
+    text: "Tori",
+    handleClickArg: { index: 1 },
+    tooltipArg: { "name": "Tori", "imageUrl": nuoli },
+    cssClass: "jumpTo"
+}
+
+const satama: IHotSpot = {
+    type: "custom",
+    pitch: 0,
+    yaw: 0,
+    text: "Satama",
+    handleClickArg: { index: 2 },
+    tooltipArg: { "name": "Satama", "imageUrl": nuoli },
+    cssClass: "jumpTo"
+}
+
+const lintutarha: IHotSpot = {
+    type: "custom",
+    pitch: 0,
+    yaw: 0,
+    text: "Lintutarha",
+    handleClickArg: { index: 3 },
+    tooltipArg: { "name": "Lintutarha", "imageUrl": nuoli },
+    cssClass: "jumpTo"
+}
+
+
 const data: IPannelum[] = [
     {
         "index": 0,
@@ -13,7 +54,7 @@ const data: IPannelum[] = [
         "autoRotate": 5,
         "hotspotDebug": false,
         "showControls": false,
-        "author": "Heinolan kaupunki",
+        // "author": "Heinolan kaupunki",
         "title": "Heinolan vesitorni",
         "hotspots": [
             {
@@ -25,13 +66,19 @@ const data: IPannelum[] = [
                 "cssClass": "jumpTo"
             },
             {
-                type: "custom",
-                pitch: 5.276079238692603,
-                yaw: -99.97434903167009,
-                text: "Keskusta",
-                handleClickArg: { index: 1 },
-                tooltipArg: { "name": "Keskusta", "imageUrl": nuoli },
-                cssClass: "jumpTo"
+                ...tori,
+                pitch: -9.692922163345617,
+                yaw: 160.52623857001183,
+            },
+            {
+                ...satama,
+                pitch: -3.1859730016443075,
+                yaw: 143.11554802842574,
+            },
+            {
+                ...lintutarha,
+                pitch: -16.89734713668819,
+                yaw: -82.34678509597147,
             }
         ]
     },
@@ -42,10 +89,10 @@ const data: IPannelum[] = [
         "pitch": -15,
         "yaw": 60,
         "hfov": 110,
-        "autoRotate": 10,
+        "autoRotate": 5,
         "hotspotDebug": false,
         "showControls": false,
-        "author": "Heinolan kaupunki",
+        // "author": "Heinolan kaupunki",
         "title": "Heinolan tori",
         "hotspots": [
             {
@@ -57,13 +104,71 @@ const data: IPannelum[] = [
                 "cssClass": "jumpTo"
             },
             {
-                type: "custom",
-                pitch: 5.276079238692603,
-                yaw: -99.97434903167009,
-                text: "Keskusta",
-                handleClickArg: { index: 0 },
-                tooltipArg: { "name": "Keskusta", "imageUrl": nuoli },
+                ...vesitorni,
+                pitch: 8.15483290253405,
+                yaw: -147.14913589710366,
+            },
+            {
+                ...satama,
+                pitch: 3.2382141881024453,
+                yaw: 3.201530189388855,
+            }
+        ]
+    },
+    {
+        index: 2,
+        image: "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/satama-md.jpg",
+        preview: "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/satama-sm.jpeg",
+        pitch: -15,
+        yaw: 60,
+        hfov: 110,
+        autoRotate: 5,
+        title: "Heinolan satama",
+        hotspots: [
+            {
+                type: "info",
+                pitch: -32.397136263831705,
+                yaw: -103.54162669383389,
+                text: "Heinolan heinäsaari",
+                URL: "https://www.visitheinasaari.fi/",
                 cssClass: "jumpTo"
+            },
+            {
+                ...vesitorni,
+                pitch: 2.3729837407950765,
+                yaw: 16.96909355714521,
+            },
+            {
+                ...tori,
+                pitch: -6.367528536663143,
+                yaw: -4.797731661839407,
+            }
+        ]
+    },
+    {
+        index: 3,
+        image: "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/lintutarha-md.jpeg",
+        preview: "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/lintutarha-sm.jpeg",
+        pitch: -15,
+        yaw: 60,
+        hfov: 110,
+        autoRotate: 5,
+        title: "Heinolan lintutarha",
+        hotspots: [
+            {
+                ...vesitorni,
+                pitch: 2.7094831885623947,
+                yaw: -165.25638191882962,
+            },
+            {
+                ...tori,
+                pitch: -5.71328042792635,
+                yaw: -107.3537581003262,
+            },
+            {
+                ...satama,
+                pitch: 1.7199136362460654,
+                yaw: -117.15027383649489,
             }
         ]
     }
@@ -80,9 +185,9 @@ export interface IPannelum {
     yaw: number
     hfov: number
     autoRotate: number
-    hotspotDebug: boolean
-    showControls: boolean
-    author: string
+    hotspotDebug?: boolean
+    showControls?: boolean
+    author?: string
     title: string
     hotspots: IHotSpot[]
     // uiText?: IUiText
