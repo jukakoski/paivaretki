@@ -5,7 +5,8 @@ import nuoli from '../components/icon/nuoli.png'
 const data: IPannelum[] = [
     {
         "index": 0,
-        "image": "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/vesitorni.jpg",
+        "image": "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/vesitorni-md.jpeg",
+        preview: "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/vesitorni-sm.jpeg",
         "pitch": -15,
         "yaw": 60,
         "hfov": 110,
@@ -36,7 +37,8 @@ const data: IPannelum[] = [
     },
     {
         "index": 1,
-        "image": "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/tori.jpg",
+        "image": "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/tori-md.jpeg",
+        preview: "https://heinolan-kaupunki.s3.eu-west-1.amazonaws.com/pictures/360/tori-sm.jpeg",
         "pitch": -15,
         "yaw": 60,
         "hfov": 110,
@@ -73,6 +75,7 @@ export default data
 export interface IPannelum {
     index: number
     image: string
+    preview?: string
     pitch: number
     yaw: number
     hfov: number
@@ -82,6 +85,7 @@ export interface IPannelum {
     author: string
     title: string
     hotspots: IHotSpot[]
+    // uiText?: IUiText
 }
 
 interface IHotSpot {
@@ -93,4 +97,17 @@ interface IHotSpot {
     cssClass: string
     handleClickArg?: object
     tooltipArg?: object
+}
+
+export interface IUiText {
+    loadButtonLabel?: string // "Click to<br>Load<br>Panorama",
+    loadingLabel?: string // "Loading...",
+    bylineLabel?: string // "by %s",
+    noPanoramaError?: string // "No panorama image was specified.",
+    fileAccessError?: string // "The file %s could not be accessed.",
+    malformedURLError?: string // "There is something wrong with the panorama URL.",
+    iOS8WebGLError?: string // "Due to iOS 8's broken WebGL implementation, only progressive encoded JPEGs work for your device (this panorama uses standard encoding).",
+    genericWebGLError?: string // "Your browser does not have the necessary WebGL support to display this panorama.",
+    textureSizeError?: string //  "This panorama is too big for your device! It's %spx wide, but your device only supports images up to %spx wide. Try another device. (If you're the author, try scaling down the image.)",
+    unknownError?: string // "Unknown error. Check developer console."
 }

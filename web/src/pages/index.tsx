@@ -12,7 +12,7 @@ import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { GatsbyImage } from "gatsby-plugin-image";
 // import { Pannellum } from "pannellum-react";
-import pannelumData, { IPannelum } from '../data/pannelum'
+import pannelumData, { IPannelum, IUiText } from '../data/pannelum'
 import Pannellum from "../components/LoadablePannelum";
 
 export const query = graphql`
@@ -94,6 +94,11 @@ const IndexPage = props => {
 
   const selectedPannelum: IPannelum = pannelumData.filter(item => item.index === selectedPannelumIndex)[0]
 
+  const pannelumUiText: IUiText = {
+    bylineLabel: "%s",
+    loadingLabel: "Ladataan..."
+  }
+
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
@@ -104,13 +109,20 @@ const IndexPage = props => {
           <Pannellum
             {...selectedPannelum}
             width="100%"
-            height="800px"
+            height="100vh"
             autoLoad
             onLoad={() => {
               console.log("panorama loaded");
             }}
             keyboardZoom={false}
             mouseZoom={false}
+            showFullscreenCtrl={true}
+            showControls
+            config={{
+              uiText: {
+                bylineLabel: "heippa"
+              }
+            }}
           >
             {selectedPannelum?.hotspots.map((props) =>
               <Pannellum.Hotspot
